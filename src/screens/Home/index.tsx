@@ -8,8 +8,16 @@ import { CategorySelect } from "../../components/CategorySelect";
 import { ListHeader } from "../../components/ListHeader";
 import { Appointment } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider";
+import { Background } from "../../components/Background";
+import { useNavigation } from "@react-navigation/native";
+
+
+
 export function Home() {
+
   const [category, setCategory] = useState("");
+
+  const navigation = useNavigation()
 
   const appointments = [
     {
@@ -40,12 +48,16 @@ export function Home() {
     },
   ];
 
+  function handleAppointmentDetails() {
+    navigation.navigate('AppointmentDetails')
+  }
+
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd />
@@ -54,16 +66,20 @@ export function Home() {
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
+        hasCheckBox={true}
       />
       <ListHeader title="Partidas agendadas" subtitle="Total 6" />
       <FlatList
         data={appointments}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Appointment data={item} />}
+        renderItem={({ item }) => <Appointment 
+        data={item}
+        onPress={handleAppointmentDetails}
+        />}
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.matches}
         showsVerticalScrollIndicator={false}
       />
-    </View>
+    </Background>
   );
 }
