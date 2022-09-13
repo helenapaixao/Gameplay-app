@@ -19,6 +19,6 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.secondary30,
     alignItems: 'center',
     marginTop: 13,
-    marginBottom: 103
+
   }
 })
