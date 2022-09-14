@@ -11,6 +11,7 @@ container: {
 content: {
   flex: 1,
   justifyContent: 'center',
+  marginLeft: 10
 
 },
 title: {
@@ -24,7 +25,7 @@ type: {
   fontFamily: theme.fonts.text400,
   color: theme.colors.highlight,
   fontSize: 13,
-  marginBottom: 12,
+ 
 }
 
 })

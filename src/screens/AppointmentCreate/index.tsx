@@ -46,6 +46,11 @@ export function AppointmentCreate() {
     setOpenGuildsModal(false);
   }
 
+  function handleCategorySelect(categoryId: string) {
+   setCategory(category)
+  }
+
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -68,7 +73,7 @@ export function AppointmentCreate() {
           </Text>
           <CategorySelect
             hasCheckBox
-            setCategory={setCategory}
+            setCategory={handleCategorySelect}
             categorySelected={category}
           />
 
