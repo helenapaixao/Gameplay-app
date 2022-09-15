@@ -1,6 +1,6 @@
 import React from "react";
 import { useFonts } from "expo-font";
-import { StatusBar } from "react-native";
+import { StatusBar, LogBox } from "react-native";
 import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
 import {
   Rajdhani_500Medium,
